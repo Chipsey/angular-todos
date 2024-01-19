@@ -1,0 +1,25 @@
+<div>
+  <h2>ToDo List</h2>
+  <ul>
+    <li *ngFor="let item of todos; let i = index; trackBy: trackByFn">
+      <div>
+        <div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </div>
+        <button (click)="handleRemove(item._id)">Remove</button>
+      </div>
+    </li>
+  </ul>
+  <div>
+    <form [formGroup]="profileForm" (ngSubmit)="handleSubmit()">
+      <label for="title">Title:</label>
+      <input type="text" id="title" formControlName="title" />
+
+      <label for="description">Description:</label>
+      <input type="text" id="description" formControlName="description" />
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</div>
