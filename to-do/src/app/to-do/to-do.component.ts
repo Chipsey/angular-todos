@@ -1,8 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TodoService } from './todo.service';
 import { todo } from './todo.model';
-import { HttpClient } from '@angular/common/http';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-todo',
@@ -11,11 +10,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class TodoComponent implements OnInit {
   @Input() todo!: todo;
-  todos: any[] = [];
+  todos: todo[] = [];
 
   constructor(
     private todoService: TodoService,
-    private httpClient: HttpClient
   ) {}
 
   ngOnInit(): void {
